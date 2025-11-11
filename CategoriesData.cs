@@ -10,9 +10,12 @@ namespace Manage_POS
 {
    class CategoriesData
     {
-        public int ID { get; set; }
+        public int ID { get; set; } // Keep this property
+        // Remove: public object Id { get; set; } // <-- Delete this line
         public string Category { get; set; }
         public string date { get; set; }
+      
+
         public List<CategoriesData> AllcategoriesData()
         {
             List<CategoriesData> listData = new List<CategoriesData>();

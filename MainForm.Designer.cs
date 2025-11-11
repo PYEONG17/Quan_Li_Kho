@@ -40,9 +40,10 @@
             this.uiButton_add_user = new Sunny.UI.UIButton();
             this.uiButton_dashboard = new Sunny.UI.UIButton();
             this.label2 = new System.Windows.Forms.Label();
+            this.adminAddCategories1 = new Manage_POS.AdminAddCategories();
             this.adminAddUser1 = new Manage_POS.AdminAddUser();
             this.admin_Dashboard1 = new Manage_POS.Admin_Dashboard();
-            this.adminAddCategories1 = new Manage_POS.AdminAddCategories();
+            this.addminProduct1 = new Manage_POS.AddminProduct();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -193,6 +194,14 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Welcome !";
             // 
+            // adminAddCategories1
+            // 
+            this.adminAddCategories1.Location = new System.Drawing.Point(206, 51);
+            this.adminAddCategories1.Name = "adminAddCategories1";
+            this.adminAddCategories1.Size = new System.Drawing.Size(1009, 638);
+            this.adminAddCategories1.TabIndex = 4;
+            this.adminAddCategories1.Load += new System.EventHandler(this.adminAddCategories1_Load);
+            // 
             // adminAddUser1
             // 
             this.adminAddUser1.Location = new System.Drawing.Point(206, 51);
@@ -208,18 +217,19 @@
             this.admin_Dashboard1.Size = new System.Drawing.Size(993, 625);
             this.admin_Dashboard1.TabIndex = 2;
             // 
-            // adminAddCategories1
+            // addminProduct1
             // 
-            this.adminAddCategories1.Location = new System.Drawing.Point(206, 51);
-            this.adminAddCategories1.Name = "adminAddCategories1";
-            this.adminAddCategories1.Size = new System.Drawing.Size(1009, 638);
-            this.adminAddCategories1.TabIndex = 4;
+            this.addminProduct1.Location = new System.Drawing.Point(206, 51);
+            this.addminProduct1.Name = "addminProduct1";
+            this.addminProduct1.Size = new System.Drawing.Size(1009, 648);
+            this.addminProduct1.TabIndex = 5;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1206, 685);
+            this.Controls.Add(this.addminProduct1);
             this.Controls.Add(this.adminAddCategories1);
             this.Controls.Add(this.adminAddUser1);
             this.Controls.Add(this.admin_Dashboard1);
@@ -254,5 +264,6 @@
         private Admin_Dashboard admin_Dashboard1;
         private AdminAddUser adminAddUser1;
         private AdminAddCategories adminAddCategories1;
+        private AddminProduct addminProduct1;
     }
 }

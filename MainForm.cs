@@ -79,5 +79,10 @@ namespace Manage_POS
         {
 
         }
+
+        private void adminAddCategories1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

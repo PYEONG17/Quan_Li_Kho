@@ -75,6 +75,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddminProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AddminProduct.Designer.cs">
+      <DependentUpon>AddminProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddProductData.cs" />
     <Compile Include="AdminAddCategories.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -120,6 +127,9 @@
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
     <Compile Include="UserData.cs" />
+    <EmbeddedResource Include="AddminProduct.resx">
+      <DependentUpon>AddminProduct.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminAddCategories.resx">
       <DependentUpon>AdminAddCategories.cs</DependentUpon>
     </EmbeddedResource>
@@ -147,6 +157,7 @@
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Addmin" />
     <None Include="packages.config" />
     <None Include="PoS_manageDataSet.xsc">
       <DependentUpon>PoS_manageDataSet.xsd</DependentUpon>
@@ -183,6 +194,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Product_directory\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
