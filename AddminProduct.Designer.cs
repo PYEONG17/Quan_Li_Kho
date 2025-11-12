@@ -121,9 +121,6 @@
             // 
             this.comboBox_category.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_category.FormattingEnabled = true;
-            this.comboBox_category.Items.AddRange(new object[] {
-            "Phone",
-            "computer"});
             this.comboBox_category.Location = new System.Drawing.Point(159, 102);
             this.comboBox_category.Name = "comboBox_category";
             this.comboBox_category.Size = new System.Drawing.Size(184, 29);

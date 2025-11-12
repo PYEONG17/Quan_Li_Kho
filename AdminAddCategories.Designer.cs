@@ -74,9 +74,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(21, 134);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(150, 32);
+            this.label2.Size = new System.Drawing.Size(43, 32);
             this.label2.TabIndex = 12;
-            this.label2.Text = "Danh mục";
+            this.label2.Text = "ID";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // button_clearCatgory
@@ -146,9 +146,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(21, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 32);
+            this.label1.Size = new System.Drawing.Size(150, 32);
             this.label1.TabIndex = 0;
-            this.label1.Text = "ID";
+            this.label1.Text = "Danh mục";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel2

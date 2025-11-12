@@ -20,4 +20,3 @@ D:\WinForm\Project\Manage_POS\obj\Release\Manage_POS.csproj.CoreCompileInputs.ca
 D:\WinForm\Project\Manage_POS\obj\Release\Manage_POS.csproj.Up2Date
 D:\WinForm\Project\Manage_POS\obj\Release\Manage_POS.exe
 D:\WinForm\Project\Manage_POS\obj\Release\Manage_POS.pdb
-D:\WinForm\Project\Manage_POS\obj\Release\Manage_POS.exe.config

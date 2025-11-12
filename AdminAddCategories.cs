@@ -36,7 +36,7 @@ namespace Manage_POS
         }
         public void displayCategoriesData()
         {
-            CategoriesData  cData= new CategoriesData();
+            CategoriesData cData = new CategoriesData();
             List<CategoriesData> listData = new CategoriesData().AllcategoriesData();
             // Tạo danh sách mới với cột STT
             var displayList = listData.Select((item, index) => new
@@ -55,23 +55,23 @@ namespace Manage_POS
                 MessageBox.Show("các trường trống", "error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
-            { 
+            {
                 if (checkConnection())
                 {
                     try
                     {
                         connect.Open();
-                       string checkCategory= "SELECT * FROM categories WHERE Category=@category";
-                        using (SqlCommand cmd=new SqlCommand(checkCategory,connect))
+                        string checkCategory = "SELECT * FROM categories WHERE Category=@category";
+                        using (SqlCommand cmd = new SqlCommand(checkCategory, connect))
                         {
-                             cmd.Parameters.AddWithValue("@category", textBox_Categoryname.Text.Trim());
+                            cmd.Parameters.AddWithValue("@category", textBox_Categoryname.Text.Trim());
                             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                             DataTable table = new DataTable();
                             adapter.Fill(table);
                             if (table.Rows.Count > 0)
                             {
                                 MessageBox.Show("Các trường trống", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                
+
                             }
                             else
                             {
@@ -83,11 +83,11 @@ namespace Manage_POS
                                     DateTime today = DateTime.Today;
                                     insertCmd.Parameters.AddWithValue("@date", today.ToString("MM/dd/yyyy"));
 
-                                    insertCmd.ExecuteNonQuery(); 
+                                    insertCmd.ExecuteNonQuery();
                                     clearFields();
 
                                     displayCategoriesData();
-                                  
+
                                     MessageBox.Show("Thêm danh mục thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     textBox_Categoryname.Clear();
                                 }
@@ -109,24 +109,27 @@ namespace Manage_POS
         {
             textBox_Categoryname.Text = " ";
             textBox_Categoryname2.Text = " ";
-
+            getID = 0;
         }
         private void button_clearCatgory_Click(object sender, EventArgs e)
         {
             clearFields();
         }
-        private int getID= 0;
+        private int getID = 0;
         private void dataGridView_categories_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1)
             {
                 DataGridViewRow row = dataGridView_categories.Rows[e.RowIndex];
-                // Nếu cột đầu tiên là STT, cột thứ hai là ID, cột thứ ba là Category
-                getID = (int)row.Cells[1].Value; // ID
-                textBox_Categoryname.Text = row.Cells[1].Value.ToString(); // Hiển thị ID
-                textBox_Categoryname2.Text = row.Cells[2].Value.ToString(); // Hiển thị Category
+                // Nếu cột: 0=STT, 1=ID, 2=Category
+                getID = Convert.ToInt32(row.Cells[1].Value); // ID
+                                                             // Hiển thị ID vào textbox ID (nếu có)
+                textBox_Categoryname2.Text = getID.ToString(); // textbox dành cho ID (hoặc textBox_CategoryID)
+                                                               // Hiển thị tên danh mục vào textbox tên
+                textBox_Categoryname.Text = row.Cells[2].Value?.ToString() ?? string.Empty; // textbox dành cho tên
             }
         }
+
 
         private void button_updateCatgory_Click(object sender, EventArgs e)
         {
@@ -151,8 +154,9 @@ namespace Manage_POS
                         string checkCategory = "SELECT * FROM categories WHERE Category=@category AND id<>@id";
                         using (SqlCommand cmd = new SqlCommand(checkCategory, connect))
                         {
-                            cmd.Parameters.AddWithValue("@category", textBox_Categoryname.Text.Trim());
                             cmd.Parameters.AddWithValue("@id", getID);
+                            cmd.Parameters.AddWithValue("@category", textBox_Categoryname.Text.Trim());
+
                             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                             DataTable table = new DataTable();
                             adapter.Fill(table);
@@ -166,8 +170,9 @@ namespace Manage_POS
                         string updateCategory = "UPDATE categories SET Category=@category WHERE id=@id";
                         using (SqlCommand updateCmd = new SqlCommand(updateCategory, connect))
                         {
-                            updateCmd.Parameters.AddWithValue("@category", textBox_Categoryname2.Text.Trim()); // Chỉ dùng 1 biến @category
                             updateCmd.Parameters.AddWithValue("@id", getID);
+                            updateCmd.Parameters.AddWithValue("@category", textBox_Categoryname2.Text.Trim()); // Chỉ dùng 1 biến @category
+
                             updateCmd.ExecuteNonQuery();
                         }
                         clearFields();

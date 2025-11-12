@@ -100,6 +100,18 @@
     <Compile Include="Admin_Dashboard.Designer.cs">
       <DependentUpon>Admin_Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="CashierMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CashierMainForm.Designer.cs">
+      <DependentUpon>CashierMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierOrder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CashierOrder.Designer.cs">
+      <DependentUpon>CashierOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="CategoriesData.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -138,6 +150,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin_Dashboard.resx">
       <DependentUpon>Admin_Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierMainForm.resx">
+      <DependentUpon>CashierMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierOrder.resx">
+      <DependentUpon>CashierOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
