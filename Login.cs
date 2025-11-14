@@ -21,7 +21,7 @@ namespace Manage_POS
         public Login()
         {
             InitializeComponent();
-            
+
         }
 
         private void uiLabel2_Click(object sender, EventArgs e)
@@ -53,42 +53,62 @@ namespace Manage_POS
 
         private void materialButton1_Click(object sender, EventArgs e)
         {
-            if (checkConnection())
+            if (!checkConnection()) return;
+
+            try
             {
-                try
+                connect.Open();
+
+                // Lấy role trực tiếp nếu username + password + status khớp
+                string sql = "SELECT role FROM users WHERE username = @username AND password = @password AND status = @status";
+                using (SqlCommand cmd = new SqlCommand(sql, connect))
                 {
-                    connect.Open();
-                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM users WHERE username=@username AND password=@password", connect))
+                    cmd.Parameters.AddWithValue("@username", login_username_textbox.Text.Trim());
+                    cmd.Parameters.AddWithValue("@password", login_password_textbox.Text.Trim());
+                    cmd.Parameters.AddWithValue("@status", "Active");
+
+                    object result = cmd.ExecuteScalar(); // trả về role hoặc null nếu không có
+                    if (result != null && result != DBNull.Value)
                     {
-                        cmd.Parameters.AddWithValue("@username", login_username_textbox.Text.Trim());
-                        cmd.Parameters.AddWithValue("@password", login_password_textbox.Text.Trim());
-                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                        DataTable table = new DataTable();
-                        adapter.Fill(table);
-                        if (table.Rows.Count > 0)
+                        string userRole = result.ToString();
+                        MessageBox.Show("Đăng nhập thành công !", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        if (userRole == "Admin")
                         {
-                            MessageBox.Show("Đăng nhập thành công !", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             MainForm mainForm = new MainForm();
                             mainForm.Show();
                             this.Hide();
                         }
+                        else if (userRole == "Cashier")
+                        {
+                            CashierMainForm cashierForm = new CashierMainForm();
+                            cashierForm.Show();
+                            this.Hide();
+                        }
                         else
                         {
-                            MessageBox.Show("Invalid username or password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                          
+                            // Nếu có vai trò khác
+                            MessageBox.Show($"Vai trò không hợp lệ: {userRole}", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Kết nối thất bại !" + ex, "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    connect.Close();
+                    else
+                    {
+                        MessageBox.Show("Invalid username or password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Kết nối thất bại ! " + ex.Message, "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                connect.Close();
+            }
         }
+   
+
 
         private void Login_Load(object sender, EventArgs e)
         {
@@ -124,15 +144,15 @@ namespace Manage_POS
         }
         private void login_show_password_CheckedChanged(object sender, EventArgs e)
         {
-           if(login_password_textbox.UseSystemPasswordChar==true)
+            if (login_password_textbox.UseSystemPasswordChar == true)
             {
                 login_password_textbox.UseSystemPasswordChar = false;
             }
-           else
+            else
             {
                 login_password_textbox.UseSystemPasswordChar = true;
             }
 
         }
     }
-} 
+}

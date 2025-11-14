@@ -32,16 +32,17 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.uiButton1 = new Sunny.UI.UIButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.uiButton_log_out = new Sunny.UI.UIButton();
             this.uiButton_customer = new Sunny.UI.UIButton();
             this.uiButton_add_product = new Sunny.UI.UIButton();
             this.uiButton_dashboard = new Sunny.UI.UIButton();
             this.label2 = new System.Windows.Forms.Label();
-            this.uiButton1 = new Sunny.UI.UIButton();
             this.panel3 = new CSharp.Winform.UI.Panel();
             this.admin_Dashboard1 = new Manage_POS.Admin_Dashboard();
             this.addminProduct1 = new Manage_POS.AddminProduct();
+            this.cashierOrder1 = new Manage_POS.CashierOrder();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -84,6 +85,20 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(203, 634);
             this.panel2.TabIndex = 2;
+            // 
+            // uiButton1
+            // 
+            this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uiButton1.Location = new System.Drawing.Point(6, 281);
+            this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiButton1.Name = "uiButton1";
+            this.uiButton1.Radius = 8;
+            this.uiButton1.RectHoverColor = System.Drawing.Color.DodgerBlue;
+            this.uiButton1.Size = new System.Drawing.Size(194, 38);
+            this.uiButton1.TabIndex = 9;
+            this.uiButton1.Text = "Đặt hàng";
+            this.uiButton1.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             // 
             // pictureBox2
             // 
@@ -161,22 +176,9 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Welcome !";
             // 
-            // uiButton1
-            // 
-            this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiButton1.Location = new System.Drawing.Point(6, 281);
-            this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiButton1.Name = "uiButton1";
-            this.uiButton1.Radius = 8;
-            this.uiButton1.RectHoverColor = System.Drawing.Color.DodgerBlue;
-            this.uiButton1.Size = new System.Drawing.Size(194, 38);
-            this.uiButton1.TabIndex = 9;
-            this.uiButton1.Text = "Đặt hàng";
-            this.uiButton1.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.cashierOrder1);
             this.panel3.Controls.Add(this.addminProduct1);
             this.panel3.Controls.Add(this.admin_Dashboard1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -197,8 +199,15 @@
             // 
             this.addminProduct1.Location = new System.Drawing.Point(3, 0);
             this.addminProduct1.Name = "addminProduct1";
-            this.addminProduct1.Size = new System.Drawing.Size(1009, 648);
+            this.addminProduct1.Size = new System.Drawing.Size(1009, 688);
             this.addminProduct1.TabIndex = 1;
+            // 
+            // cashierOrder1
+            // 
+            this.cashierOrder1.Location = new System.Drawing.Point(0, 0);
+            this.cashierOrder1.Name = "cashierOrder1";
+            this.cashierOrder1.Size = new System.Drawing.Size(1009, 648);
+            this.cashierOrder1.TabIndex = 2;
             // 
             // CashierMainForm
             // 
@@ -233,7 +242,8 @@
         private System.Windows.Forms.Label label2;
         private Sunny.UI.UIButton uiButton1;
         private CSharp.Winform.UI.Panel panel3;
-        private AddminProduct addminProduct1;
         private Admin_Dashboard admin_Dashboard1;
+        private AddminProduct addminProduct1;
+        private CashierOrder cashierOrder1;
     }
 }

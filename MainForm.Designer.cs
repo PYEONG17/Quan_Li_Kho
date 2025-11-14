@@ -40,10 +40,10 @@
             this.uiButton_add_user = new Sunny.UI.UIButton();
             this.uiButton_dashboard = new Sunny.UI.UIButton();
             this.label2 = new System.Windows.Forms.Label();
+            this.addminProduct1 = new Manage_POS.AddminProduct();
             this.adminAddCategories1 = new Manage_POS.AdminAddCategories();
             this.adminAddUser1 = new Manage_POS.AdminAddUser();
             this.admin_Dashboard1 = new Manage_POS.Admin_Dashboard();
-            this.addminProduct1 = new Manage_POS.AddminProduct();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -194,6 +194,13 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Welcome !";
             // 
+            // addminProduct1
+            // 
+            this.addminProduct1.Location = new System.Drawing.Point(206, 51);
+            this.addminProduct1.Name = "addminProduct1";
+            this.addminProduct1.Size = new System.Drawing.Size(1009, 648);
+            this.addminProduct1.TabIndex = 5;
+            // 
             // adminAddCategories1
             // 
             this.adminAddCategories1.Location = new System.Drawing.Point(206, 51);
@@ -216,13 +223,6 @@
             this.admin_Dashboard1.Name = "admin_Dashboard1";
             this.admin_Dashboard1.Size = new System.Drawing.Size(993, 625);
             this.admin_Dashboard1.TabIndex = 2;
-            // 
-            // addminProduct1
-            // 
-            this.addminProduct1.Location = new System.Drawing.Point(206, 51);
-            this.addminProduct1.Name = "addminProduct1";
-            this.addminProduct1.Size = new System.Drawing.Size(1009, 648);
-            this.addminProduct1.TabIndex = 5;
             // 
             // MainForm
             // 

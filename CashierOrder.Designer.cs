@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new CSharp.Winform.UI.Panel();
+            this.label10 = new CSharp.Winform.UI.Label();
             this.dataGridView1 = new CSharp.Winform.UI.DataGridView();
             this.panel2 = new CSharp.Winform.UI.Panel();
             this.uiButton_ClearCashierOrder = new Sunny.UI.UIButton();
@@ -45,17 +46,16 @@
             this.label2 = new CSharp.Winform.UI.Label();
             this.label1 = new CSharp.Winform.UI.Label();
             this.panel3 = new CSharp.Winform.UI.Panel();
+            this.CashierOrder_change = new CSharp.Winform.UI.Label();
+            this.label14 = new CSharp.Winform.UI.Label();
+            this.CashierOrder_total = new CSharp.Winform.UI.Label();
+            this.CashierOrder_bill = new Sunny.UI.UIButton();
+            this.CashierOrder_pay = new Sunny.UI.UIButton();
+            this.label11 = new CSharp.Winform.UI.Label();
             this.CashierOrder_amount = new CSharp.Winform.UI.TextBox();
             this.label9 = new CSharp.Winform.UI.Label();
             this.label8 = new CSharp.Winform.UI.Label();
             this.dataGridView2 = new CSharp.Winform.UI.DataGridView();
-            this.label10 = new CSharp.Winform.UI.Label();
-            this.label11 = new CSharp.Winform.UI.Label();
-            this.CashierOrder_pay = new Sunny.UI.UIButton();
-            this.CashierOrder_bill = new Sunny.UI.UIButton();
-            this.CashierOrder_total = new CSharp.Winform.UI.Label();
-            this.CashierOrder_change = new CSharp.Winform.UI.Label();
-            this.label14 = new CSharp.Winform.UI.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -73,6 +73,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(616, 316);
             this.panel1.TabIndex = 0;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(9, 12);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(163, 22);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "Sản phẩm có sẵn";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // dataGridView1
             // 
@@ -110,7 +121,7 @@
             // 
             this.uiButton_ClearCashierOrder.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiButton_ClearCashierOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiButton_ClearCashierOrder.Location = new System.Drawing.Point(399, 222);
+            this.uiButton_ClearCashierOrder.Location = new System.Drawing.Point(437, 222);
             this.uiButton_ClearCashierOrder.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton_ClearCashierOrder.Name = "uiButton_ClearCashierOrder";
             this.uiButton_ClearCashierOrder.Size = new System.Drawing.Size(89, 38);
@@ -122,7 +133,7 @@
             // 
             this.uiButton_RemoveCashierOrder.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiButton_RemoveCashierOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiButton_RemoveCashierOrder.Location = new System.Drawing.Point(250, 222);
+            this.uiButton_RemoveCashierOrder.Location = new System.Drawing.Point(270, 222);
             this.uiButton_RemoveCashierOrder.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton_RemoveCashierOrder.Name = "uiButton_RemoveCashierOrder";
             this.uiButton_RemoveCashierOrder.Size = new System.Drawing.Size(89, 38);
@@ -256,6 +267,70 @@
             this.panel3.Size = new System.Drawing.Size(369, 614);
             this.panel3.TabIndex = 2;
             // 
+            // CashierOrder_change
+            // 
+            this.CashierOrder_change.AutoSize = true;
+            this.CashierOrder_change.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CashierOrder_change.Location = new System.Drawing.Point(211, 438);
+            this.CashierOrder_change.Name = "CashierOrder_change";
+            this.CashierOrder_change.Size = new System.Drawing.Size(48, 21);
+            this.CashierOrder_change.TabIndex = 26;
+            this.CashierOrder_change.Text = "0.00";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(112, 438);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(89, 21);
+            this.label14.TabIndex = 25;
+            this.label14.Text = "Thay đổi:";
+            // 
+            // CashierOrder_total
+            // 
+            this.CashierOrder_total.AutoSize = true;
+            this.CashierOrder_total.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CashierOrder_total.Location = new System.Drawing.Point(211, 347);
+            this.CashierOrder_total.Name = "CashierOrder_total";
+            this.CashierOrder_total.Size = new System.Drawing.Size(48, 21);
+            this.CashierOrder_total.TabIndex = 24;
+            this.CashierOrder_total.Text = "0.00";
+            // 
+            // CashierOrder_bill
+            // 
+            this.CashierOrder_bill.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CashierOrder_bill.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.CashierOrder_bill.Location = new System.Drawing.Point(16, 560);
+            this.CashierOrder_bill.MinimumSize = new System.Drawing.Size(1, 1);
+            this.CashierOrder_bill.Name = "CashierOrder_bill";
+            this.CashierOrder_bill.Size = new System.Drawing.Size(338, 38);
+            this.CashierOrder_bill.TabIndex = 23;
+            this.CashierOrder_bill.Text = "Hóa đơn";
+            this.CashierOrder_bill.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            // 
+            // CashierOrder_pay
+            // 
+            this.CashierOrder_pay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CashierOrder_pay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.CashierOrder_pay.Location = new System.Drawing.Point(16, 499);
+            this.CashierOrder_pay.MinimumSize = new System.Drawing.Size(1, 1);
+            this.CashierOrder_pay.Name = "CashierOrder_pay";
+            this.CashierOrder_pay.Size = new System.Drawing.Size(338, 38);
+            this.CashierOrder_pay.TabIndex = 22;
+            this.CashierOrder_pay.Text = "Thanh toán";
+            this.CashierOrder_pay.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(12, 12);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(150, 22);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "Tất cả đặt hàng";
+            // 
             // CashierOrder_amount
             // 
             this.CashierOrder_amount.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -294,81 +369,6 @@
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.Size = new System.Drawing.Size(338, 279);
             this.dataGridView2.TabIndex = 0;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(9, 12);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(163, 22);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "Sản phẩm có sẵn";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(12, 12);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(150, 22);
-            this.label11.TabIndex = 20;
-            this.label11.Text = "Tất cả đặt hàng";
-            // 
-            // CashierOrder_pay
-            // 
-            this.CashierOrder_pay.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CashierOrder_pay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.CashierOrder_pay.Location = new System.Drawing.Point(16, 499);
-            this.CashierOrder_pay.MinimumSize = new System.Drawing.Size(1, 1);
-            this.CashierOrder_pay.Name = "CashierOrder_pay";
-            this.CashierOrder_pay.Size = new System.Drawing.Size(338, 38);
-            this.CashierOrder_pay.TabIndex = 22;
-            this.CashierOrder_pay.Text = "Thanh toán";
-            this.CashierOrder_pay.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            // 
-            // CashierOrder_bill
-            // 
-            this.CashierOrder_bill.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CashierOrder_bill.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.CashierOrder_bill.Location = new System.Drawing.Point(16, 560);
-            this.CashierOrder_bill.MinimumSize = new System.Drawing.Size(1, 1);
-            this.CashierOrder_bill.Name = "CashierOrder_bill";
-            this.CashierOrder_bill.Size = new System.Drawing.Size(338, 38);
-            this.CashierOrder_bill.TabIndex = 23;
-            this.CashierOrder_bill.Text = "Hóa đơn";
-            this.CashierOrder_bill.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            // 
-            // CashierOrder_total
-            // 
-            this.CashierOrder_total.AutoSize = true;
-            this.CashierOrder_total.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CashierOrder_total.Location = new System.Drawing.Point(211, 347);
-            this.CashierOrder_total.Name = "CashierOrder_total";
-            this.CashierOrder_total.Size = new System.Drawing.Size(48, 21);
-            this.CashierOrder_total.TabIndex = 24;
-            this.CashierOrder_total.Text = "0.00";
-            // 
-            // CashierOrder_change
-            // 
-            this.CashierOrder_change.AutoSize = true;
-            this.CashierOrder_change.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CashierOrder_change.Location = new System.Drawing.Point(211, 438);
-            this.CashierOrder_change.Name = "CashierOrder_change";
-            this.CashierOrder_change.Size = new System.Drawing.Size(48, 21);
-            this.CashierOrder_change.TabIndex = 26;
-            this.CashierOrder_change.Text = "0.00";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(112, 438);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(89, 21);
-            this.label14.TabIndex = 25;
-            this.label14.Text = "Thay đổi:";
             // 
             // CashierOrder
             // 
