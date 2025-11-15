@@ -66,9 +66,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(437, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(367, 32);
+            this.label1.Size = new System.Drawing.Size(334, 32);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Hệ thống Quản lý Tồn kho";
+            this.label1.Text = "Hệ thống quản lý xe hơi";
             // 
             // panel2
             // 
@@ -183,6 +183,7 @@
             this.uiButton_dashboard.TabIndex = 2;
             this.uiButton_dashboard.Text = "Dashboard";
             this.uiButton_dashboard.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.uiButton_dashboard.Click += new System.EventHandler(this.uiButton_dashboard_Click);
             // 
             // label2
             // 

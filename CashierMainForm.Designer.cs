@@ -40,8 +40,8 @@
             this.uiButton_dashboard = new Sunny.UI.UIButton();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new CSharp.Winform.UI.Panel();
-            this.admin_Dashboard1 = new Manage_POS.Admin_Dashboard();
             this.addminProduct1 = new Manage_POS.AddminProduct();
+            this.admin_Dashboard1 = new Manage_POS.Admin_Dashboard();
             this.cashierOrder1 = new Manage_POS.CashierOrder();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -66,9 +66,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(437, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(367, 32);
+            this.label1.Size = new System.Drawing.Size(334, 32);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Hệ thống Quản lý Tồn kho";
+            this.label1.Text = "Hệ thống quản lý xe hơi";
             // 
             // panel2
             // 
@@ -123,6 +123,7 @@
             this.uiButton_log_out.TabIndex = 7;
             this.uiButton_log_out.Text = "Đăng xuất";
             this.uiButton_log_out.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.uiButton_log_out.Click += new System.EventHandler(this.uiButton_log_out_Click);
             // 
             // uiButton_customer
             // 
@@ -188,13 +189,6 @@
             this.panel3.Size = new System.Drawing.Size(1003, 634);
             this.panel3.TabIndex = 3;
             // 
-            // admin_Dashboard1
-            // 
-            this.admin_Dashboard1.Location = new System.Drawing.Point(3, 0);
-            this.admin_Dashboard1.Name = "admin_Dashboard1";
-            this.admin_Dashboard1.Size = new System.Drawing.Size(993, 625);
-            this.admin_Dashboard1.TabIndex = 0;
-            // 
             // addminProduct1
             // 
             this.addminProduct1.Location = new System.Drawing.Point(3, 0);
@@ -202,12 +196,20 @@
             this.addminProduct1.Size = new System.Drawing.Size(1009, 688);
             this.addminProduct1.TabIndex = 1;
             // 
+            // admin_Dashboard1
+            // 
+            this.admin_Dashboard1.Location = new System.Drawing.Point(3, 0);
+            this.admin_Dashboard1.Name = "admin_Dashboard1";
+            this.admin_Dashboard1.Size = new System.Drawing.Size(993, 625);
+            this.admin_Dashboard1.TabIndex = 0;
+            // 
             // cashierOrder1
             // 
-            this.cashierOrder1.Location = new System.Drawing.Point(0, 0);
+            this.cashierOrder1.Location = new System.Drawing.Point(7, 7);
             this.cashierOrder1.Name = "cashierOrder1";
             this.cashierOrder1.Size = new System.Drawing.Size(1009, 648);
             this.cashierOrder1.TabIndex = 2;
+            this.cashierOrder1.Load += new System.EventHandler(this.cashierOrder1_Load_1);
             // 
             // CashierMainForm
             // 

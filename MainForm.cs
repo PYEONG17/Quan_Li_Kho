@@ -52,7 +52,7 @@ namespace Manage_POS
 
         private void uiButton_log_out_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to logout?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Bạn có muốn đăng xuất tài khoản ?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
             Login login = new Login();
             login.Show();
@@ -81,6 +81,11 @@ namespace Manage_POS
         }
 
         private void adminAddCategories1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiButton_dashboard_Click(object sender, EventArgs e)
         {
 
         }

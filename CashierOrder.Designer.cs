@@ -30,7 +30,6 @@
         {
             this.panel1 = new CSharp.Winform.UI.Panel();
             this.label10 = new CSharp.Winform.UI.Label();
-            this.dataGridView1 = new CSharp.Winform.UI.DataGridView();
             this.panel2 = new CSharp.Winform.UI.Panel();
             this.uiButton_ClearCashierOrder = new Sunny.UI.UIButton();
             this.uiButton_RemoveCashierOrder = new Sunny.UI.UIButton();
@@ -55,19 +54,20 @@
             this.CashierOrder_amount = new CSharp.Winform.UI.TextBox();
             this.label9 = new CSharp.Winform.UI.Label();
             this.label8 = new CSharp.Winform.UI.Label();
-            this.dataGridView2 = new CSharp.Winform.UI.DataGridView();
+            this.dataGridView_Product = new System.Windows.Forms.DataGridView();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CashierOrder_quality)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Product)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.dataGridView_Product);
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Font = new System.Drawing.Font("Tahoma", 8.25F);
             this.panel1.Location = new System.Drawing.Point(15, 18);
             this.panel1.Name = "panel1";
@@ -84,17 +84,6 @@
             this.label10.TabIndex = 3;
             this.label10.Text = "Sản phẩm có sẵn";
             this.label10.Click += new System.EventHandler(this.label10_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 37);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(588, 263);
-            this.dataGridView1.TabIndex = 0;
             // 
             // panel2
             // 
@@ -128,6 +117,7 @@
             this.uiButton_ClearCashierOrder.TabIndex = 23;
             this.uiButton_ClearCashierOrder.Text = "Clear";
             this.uiButton_ClearCashierOrder.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.uiButton_ClearCashierOrder.Click += new System.EventHandler(this.uiButton_ClearCashierOrder_Click);
             // 
             // uiButton_RemoveCashierOrder
             // 
@@ -215,19 +205,21 @@
             // 
             this.CashierOrder_productID.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CashierOrder_productID.FormattingEnabled = true;
-            this.CashierOrder_productID.Location = new System.Drawing.Point(437, 17);
+            this.CashierOrder_productID.Location = new System.Drawing.Point(444, 17);
             this.CashierOrder_productID.Name = "CashierOrder_productID";
             this.CashierOrder_productID.Size = new System.Drawing.Size(164, 29);
             this.CashierOrder_productID.TabIndex = 14;
+            this.CashierOrder_productID.SelectedIndexChanged += new System.EventHandler(this.CashierOrder_productID_SelectedIndexChanged);
             // 
             // CashierOrder_category
             // 
             this.CashierOrder_category.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CashierOrder_category.FormattingEnabled = true;
-            this.CashierOrder_category.Location = new System.Drawing.Point(105, 17);
+            this.CashierOrder_category.Location = new System.Drawing.Point(116, 17);
             this.CashierOrder_category.Name = "CashierOrder_category";
             this.CashierOrder_category.Size = new System.Drawing.Size(184, 29);
             this.CashierOrder_category.TabIndex = 13;
+            this.CashierOrder_category.SelectedIndexChanged += new System.EventHandler(this.CashierOrder_category_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -251,6 +243,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.dataGridView1);
             this.panel3.Controls.Add(this.CashierOrder_change);
             this.panel3.Controls.Add(this.label14);
             this.panel3.Controls.Add(this.CashierOrder_total);
@@ -260,7 +253,6 @@
             this.panel3.Controls.Add(this.CashierOrder_amount);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.dataGridView2);
             this.panel3.Font = new System.Drawing.Font("Tahoma", 8.25F);
             this.panel3.Location = new System.Drawing.Point(637, 18);
             this.panel3.Name = "panel3";
@@ -359,16 +351,25 @@
             this.label8.TabIndex = 17;
             this.label8.Text = "Tổng tiền($):";
             // 
-            // dataGridView2
+            // dataGridView_Product
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(16, 37);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(338, 279);
-            this.dataGridView2.TabIndex = 0;
+            this.dataGridView_Product.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_Product.Location = new System.Drawing.Point(13, 37);
+            this.dataGridView_Product.Name = "dataGridView_Product";
+            this.dataGridView_Product.RowHeadersWidth = 51;
+            this.dataGridView_Product.RowTemplate.Height = 24;
+            this.dataGridView_Product.Size = new System.Drawing.Size(588, 255);
+            this.dataGridView_Product.TabIndex = 4;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(16, 37);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(338, 272);
+            this.dataGridView1.TabIndex = 27;
             // 
             // CashierOrder
             // 
@@ -381,13 +382,13 @@
             this.Size = new System.Drawing.Size(1009, 648);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CashierOrder_quality)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Product)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -397,10 +398,8 @@
         private CSharp.Winform.UI.Panel panel1;
         private CSharp.Winform.UI.Panel panel2;
         private CSharp.Winform.UI.Panel panel3;
-        private CSharp.Winform.UI.DataGridView dataGridView1;
         private CSharp.Winform.UI.Label label2;
         private CSharp.Winform.UI.Label label1;
-        private CSharp.Winform.UI.DataGridView dataGridView2;
         private CSharp.Winform.UI.ComboBox CashierOrder_productID;
         private CSharp.Winform.UI.ComboBox CashierOrder_category;
         private CSharp.Winform.UI.Label label7;
@@ -422,5 +421,7 @@
         private Sunny.UI.UIButton CashierOrder_bill;
         private Sunny.UI.UIButton CashierOrder_pay;
         private CSharp.Winform.UI.Label label11;
+        private System.Windows.Forms.DataGridView dataGridView_Product;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
