@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new CSharp.Winform.UI.Panel();
+            this.dataGridView_Product = new System.Windows.Forms.DataGridView();
             this.label10 = new CSharp.Winform.UI.Label();
             this.panel2 = new CSharp.Winform.UI.Panel();
             this.uiButton_ClearCashierOrder = new Sunny.UI.UIButton();
@@ -45,6 +46,7 @@
             this.label2 = new CSharp.Winform.UI.Label();
             this.label1 = new CSharp.Winform.UI.Label();
             this.panel3 = new CSharp.Winform.UI.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.CashierOrder_change = new CSharp.Winform.UI.Label();
             this.label14 = new CSharp.Winform.UI.Label();
             this.CashierOrder_total = new CSharp.Winform.UI.Label();
@@ -54,13 +56,11 @@
             this.CashierOrder_amount = new CSharp.Winform.UI.TextBox();
             this.label9 = new CSharp.Winform.UI.Label();
             this.label8 = new CSharp.Winform.UI.Label();
-            this.dataGridView_Product = new System.Windows.Forms.DataGridView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Product)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CashierOrder_quality)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Product)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,6 +73,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(616, 316);
             this.panel1.TabIndex = 0;
+            // 
+            // dataGridView_Product
+            // 
+            this.dataGridView_Product.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_Product.Location = new System.Drawing.Point(13, 37);
+            this.dataGridView_Product.Name = "dataGridView_Product";
+            this.dataGridView_Product.RowHeadersWidth = 51;
+            this.dataGridView_Product.RowTemplate.Height = 24;
+            this.dataGridView_Product.Size = new System.Drawing.Size(588, 255);
+            this.dataGridView_Product.TabIndex = 4;
             // 
             // label10
             // 
@@ -130,6 +140,7 @@
             this.uiButton_RemoveCashierOrder.TabIndex = 22;
             this.uiButton_RemoveCashierOrder.Text = "Xóa";
             this.uiButton_RemoveCashierOrder.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.uiButton_RemoveCashierOrder.Click += new System.EventHandler(this.uiButton_RemoveCashierOrder_Click);
             // 
             // uiButton_addCashierOrder
             // 
@@ -142,6 +153,7 @@
             this.uiButton_addCashierOrder.TabIndex = 21;
             this.uiButton_addCashierOrder.Text = "Thêm";
             this.uiButton_addCashierOrder.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.uiButton_addCashierOrder.Click += new System.EventHandler(this.uiButton_addCashierOrder_Click);
             // 
             // CashierOrder_quality
             // 
@@ -259,6 +271,16 @@
             this.panel3.Size = new System.Drawing.Size(369, 614);
             this.panel3.TabIndex = 2;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(16, 37);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(338, 272);
+            this.dataGridView1.TabIndex = 27;
+            // 
             // CashierOrder_change
             // 
             this.CashierOrder_change.AutoSize = true;
@@ -351,26 +373,6 @@
             this.label8.TabIndex = 17;
             this.label8.Text = "Tổng tiền($):";
             // 
-            // dataGridView_Product
-            // 
-            this.dataGridView_Product.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_Product.Location = new System.Drawing.Point(13, 37);
-            this.dataGridView_Product.Name = "dataGridView_Product";
-            this.dataGridView_Product.RowHeadersWidth = 51;
-            this.dataGridView_Product.RowTemplate.Height = 24;
-            this.dataGridView_Product.Size = new System.Drawing.Size(588, 255);
-            this.dataGridView_Product.TabIndex = 4;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 37);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(338, 272);
-            this.dataGridView1.TabIndex = 27;
-            // 
             // CashierOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -382,12 +384,12 @@
             this.Size = new System.Drawing.Size(1009, 648);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Product)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CashierOrder_quality)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Product)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

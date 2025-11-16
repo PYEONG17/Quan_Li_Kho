@@ -11,7 +11,7 @@ using MaterialSkin;
 using MaterialSkin.Controls;
 using System.Data.SqlClient;
 using Sunny.UI;
-using System.Data;
+
 
 namespace Manage_POS
 {

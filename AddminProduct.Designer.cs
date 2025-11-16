@@ -125,6 +125,7 @@
             this.comboBox_category.Name = "comboBox_category";
             this.comboBox_category.Size = new System.Drawing.Size(184, 29);
             this.comboBox_category.TabIndex = 12;
+            this.comboBox_category.SelectedIndexChanged += new System.EventHandler(this.comboBox_category_SelectedIndexChanged);
             // 
             // uiButton_ClearProduct
             // 

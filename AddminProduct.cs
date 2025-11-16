@@ -497,5 +497,10 @@ namespace Manage_POS
                 MessageBox.Show("Lỗi khi xóa: " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void comboBox_category_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
