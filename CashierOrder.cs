@@ -20,8 +20,9 @@ namespace Manage_POS
         public CashierOrder()
         {
             InitializeComponent();
-           displayAllProducts();
+            displayAllProducts();
             displayCategories();
+            displayOrders();
         }
         public void displayAllProducts()
         {
@@ -30,6 +31,30 @@ namespace Manage_POS
             dataGridView_Product.DataSource = listData;
 
         }
+        public void displayOrders()
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connect.ConnectionString))
+                {
+                    conn.Open();
+
+                    string query = "SELECT * FROM orders ORDER BY id DESC";
+
+                    using (SqlDataAdapter da = new SqlDataAdapter(query, conn))
+                    {
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        dataGridView1.DataSource = dt;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi load dữ liệu orders: " + ex.Message);
+            }
+        }
+
         // thay thế displayCategories()
         public void displayCategories()
         {
@@ -232,6 +257,7 @@ namespace Manage_POS
             {
                 MessageBox.Show("Lỗi khi thêm sản phẩm: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            displayOrders();
         }
         private int idGen;
         public void IDGenarator()
