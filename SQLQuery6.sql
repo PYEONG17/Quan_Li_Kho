@@ -19,7 +19,7 @@ CREATE TABLE customers (
     id INT PRIMARY KEY IDENTITY(1,1),
     customer_id INT NULL,
     product_id INT NULL,
-    total_orders INT NULL,
+    total_price INT NULL,
     amount DECIMAL(18,2) NULL,
     change_amount DECIMAL(18,2) NULL,
     order_date DATE NULL
