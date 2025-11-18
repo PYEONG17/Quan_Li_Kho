@@ -12,9 +12,10 @@ create table orders (
 	order_date Date NULL,
 
 );
+
 alter table orders
 add  customer_id int null;
-select * from orders;
+
 CREATE TABLE customers (
     id INT PRIMARY KEY IDENTITY(1,1),
     customer_id int NULL,

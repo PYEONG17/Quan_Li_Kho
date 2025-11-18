@@ -471,13 +471,12 @@ namespace Manage_POS
                         try
                         {
                             string insertData =
-                                @"INSERT INTO customers (customer_id, product_id, total_price, amount, change_amount, order_date)
-                          VALUES (@customer_id, @product_id, @total_price, @amount, @change_amount, @order_date)";
+ @"INSERT INTO customers (customer_id, total_price, amount, change_amount, order_date)
+  VALUES (@customer_id, @total_price, @amount, @change_amount, @order_date)";
 
                             using (SqlCommand cmdInsert = new SqlCommand(insertData, conn, txn))
                             {
                                 cmdInsert.Parameters.AddWithValue("@customer_id", currentCustomerId);
-                                cmdInsert.Parameters.AddWithValue("@product_id", productList);
                                 cmdInsert.Parameters.AddWithValue("@total_price", totalPrice);
                                 cmdInsert.Parameters.AddWithValue("@amount", amount);
                                 cmdInsert.Parameters.AddWithValue("@change_amount", change);
