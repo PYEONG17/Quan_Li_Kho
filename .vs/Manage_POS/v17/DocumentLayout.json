@@ -3,24 +3,20 @@
   "WorkspaceRootPath": "D:\\Winform\\Quan_Li_Kho\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BC37BA8B-744F-40E8-8BE4-654DD6310F0C}|Manage_POS.csproj|d:\\winform\\quan_li_kho\\cashierorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BC37BA8B-744F-40E8-8BE4-654DD6310F0C}|Manage_POS.csproj|solutionrelative:cashierorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Winform\\Quan_Li_Kho\\customersDatabase.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:customersDatabase.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Winform\\Quan_Li_Kho\\SQLQuery_Category.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SQLQuery_Category.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Winform\\Quan_Li_Kho\\SQLQuery6.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SQLQuery6.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|"
+      "AbsoluteMoniker": "D:0:0:{BC37BA8B-744F-40E8-8BE4-654DD6310F0C}|Manage_POS.csproj|d:\\winform\\quan_li_kho\\cashierorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC37BA8B-744F-40E8-8BE4-654DD6310F0C}|Manage_POS.csproj|solutionrelative:cashierorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BC37BA8B-744F-40E8-8BE4-654DD6310F0C}|Manage_POS.csproj|D:\\Winform\\Quan_Li_Kho\\cashierorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{BC37BA8B-744F-40E8-8BE4-654DD6310F0C}|Manage_POS.csproj|solutionrelative:cashierorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Winform\\Quan_Li_Kho\\SQLQuery6.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SQLQuery6.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BC37BA8B-744F-40E8-8BE4-654DD6310F0C}|Manage_POS.csproj|D:\\Winform\\Quan_Li_Kho\\addminproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -102,10 +98,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Winform\\Quan_Li_Kho\\customersDatabase.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:customersDatabase.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Winform\\Quan_Li_Kho\\SQLQuery_Category.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SQLQuery_Category.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
     }
   ],
   "DocumentGroupContainers": [
@@ -115,7 +107,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 948,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
@@ -139,42 +131,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SQLQuery_Category.sql ",
-              "DocumentMoniker": "D:\\Winform\\Quan_Li_Kho\\SQLQuery_Category.sql",
-              "RelativeDocumentMoniker": "SQLQuery_Category.sql",
-              "ToolTip": "SQLQuery_Category.sql ",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-11-04T15:41:50.959Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "customersDatabase.sql ",
               "DocumentMoniker": "D:\\Winform\\Quan_Li_Kho\\customersDatabase.sql",
               "RelativeDocumentMoniker": "customersDatabase.sql",
               "ToolTip": "customersDatabase.sql ",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-11-18T08:27:44.48Z",
+              "WhenOpened": "2025-11-18T09:39:06.341Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "CashierOrder.cs",
               "DocumentMoniker": "D:\\Winform\\Quan_Li_Kho\\CashierOrder.cs",
               "RelativeDocumentMoniker": "CashierOrder.cs",
               "ToolTip": "D:\\Winform\\Quan_Li_Kho\\CashierOrder.cs",
               "RelativeToolTip": "CashierOrder.cs",
-              "ViewState": "AgIAAJQBAAAAAAAAAAAmwOYBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAOYBAAAAAAAAAAAgwOoBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-15T08:58:18.189Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "CashierOrder.cs [Design]",
               "DocumentMoniker": "D:\\Winform\\Quan_Li_Kho\\CashierOrder.cs",
               "RelativeDocumentMoniker": "CashierOrder.cs",
@@ -186,18 +167,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "AddminProduct.cs [Design]",
               "DocumentMoniker": "D:\\Winform\\Quan_Li_Kho\\AddminProduct.cs",
               "RelativeDocumentMoniker": "AddminProduct.cs",
               "ToolTip": "D:\\Winform\\Quan_Li_Kho\\AddminProduct.cs [Design]",
               "RelativeToolTip": "AddminProduct.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T02:38:32.594Z"
+              "WhenOpened": "2025-11-18T02:38:32.594Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "AddProductData.cs",
               "DocumentMoniker": "D:\\Winform\\Quan_Li_Kho\\AddProductData.cs",
               "RelativeDocumentMoniker": "AddProductData.cs",
@@ -205,11 +187,12 @@
               "RelativeToolTip": "AddProductData.cs",
               "ViewState": "AgIAABIAAAAAAAAAAAA6wBsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T11:57:07.908Z"
+              "WhenOpened": "2025-11-05T11:57:07.908Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "dbo.orders.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/C__USERS_ADMIN_DOCUMENTS_MANAGE_POS.MDF/True/SqlTable/dbo.orders.sql",
               "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/C__USERS_ADMIN_DOCUMENTS_MANAGE_POS.MDF/True/SqlTable/dbo.orders.sql",
@@ -218,7 +201,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "1gqgfxzn..sql",
               "DocumentMoniker": "C:\\Users\\Admin\\AppData\\Local\\Temp\\1gqgfxzn..sql",
               "ToolTip": "C:\\Users\\Admin\\AppData\\Local\\Temp\\1gqgfxzn..sql",
@@ -227,7 +210,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "OrderData.cs",
               "DocumentMoniker": "D:\\Winform\\Quan_Li_Kho\\OrderData.cs",
               "RelativeDocumentMoniker": "OrderData.cs",
@@ -235,11 +218,12 @@
               "RelativeToolTip": "OrderData.cs",
               "ViewState": "AgIAADQAAAAAAAAAAAAmwFIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:17:14.822Z"
+              "WhenOpened": "2025-11-17T02:17:14.822Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "AdminAddUser.cs",
               "DocumentMoniker": "D:\\Winform\\Quan_Li_Kho\\AdminAddUser.cs",
               "RelativeDocumentMoniker": "AdminAddUser.cs",
@@ -247,11 +231,12 @@
               "RelativeToolTip": "AdminAddUser.cs",
               "ViewState": "AgIAAL8AAAAAAAAAAAAAwM0AAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T05:33:16.427Z"
+              "WhenOpened": "2025-11-10T05:33:16.427Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 10,
               "Title": "AdminAddCategories.cs",
               "DocumentMoniker": "D:\\Winform\\Quan_Li_Kho\\AdminAddCategories.cs",
               "RelativeDocumentMoniker": "AdminAddCategories.cs",
@@ -259,33 +244,36 @@
               "RelativeToolTip": "AdminAddCategories.cs",
               "ViewState": "AgIAAG8AAAAAAAAAAAAowH4AAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T05:39:29.821Z"
+              "WhenOpened": "2025-11-10T05:39:29.821Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 11,
               "Title": "AdminAddCategories.cs [Design]",
               "DocumentMoniker": "D:\\Winform\\Quan_Li_Kho\\AdminAddCategories.cs",
               "RelativeDocumentMoniker": "AdminAddCategories.cs",
               "ToolTip": "D:\\Winform\\Quan_Li_Kho\\AdminAddCategories.cs [Design]",
               "RelativeToolTip": "AdminAddCategories.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-16T10:06:19.678Z"
+              "WhenOpened": "2025-11-16T10:06:19.678Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 12,
               "Title": "MainForm.cs [Design]",
               "DocumentMoniker": "D:\\Winform\\Quan_Li_Kho\\MainForm.cs",
               "RelativeDocumentMoniker": "MainForm.cs",
               "ToolTip": "D:\\Winform\\Quan_Li_Kho\\MainForm.cs [Design]",
               "RelativeToolTip": "MainForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T15:21:31.752Z"
+              "WhenOpened": "2025-11-03T15:21:31.752Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 13,
               "Title": "MainForm.cs",
               "DocumentMoniker": "D:\\Winform\\Quan_Li_Kho\\MainForm.cs",
               "RelativeDocumentMoniker": "MainForm.cs",
@@ -293,11 +281,12 @@
               "RelativeToolTip": "MainForm.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAASwBUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-15T08:18:01.298Z"
+              "WhenOpened": "2025-11-15T08:18:01.298Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 14,
               "Title": "Login.cs",
               "DocumentMoniker": "D:\\Winform\\Quan_Li_Kho\\Login.cs",
               "RelativeDocumentMoniker": "Login.cs",
@@ -305,22 +294,24 @@
               "RelativeToolTip": "Login.cs",
               "ViewState": "AgIAADEAAAAAAAAAAAAkwDsAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T08:23:01.125Z"
+              "WhenOpened": "2025-11-13T08:23:01.125Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 15,
               "Title": "Login.cs [Design]",
               "DocumentMoniker": "D:\\Winform\\Quan_Li_Kho\\Login.cs",
               "RelativeDocumentMoniker": "Login.cs",
               "ToolTip": "D:\\Winform\\Quan_Li_Kho\\Login.cs [Design]",
               "RelativeToolTip": "Login.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-29T03:49:45.706Z"
+              "WhenOpened": "2025-10-29T03:49:45.706Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 16,
               "Title": "dbo.categories.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_ADMIN_DOCUMENTS_MANAGE_POS.MDF/True/SqlTable/dbo.categories.sql",
               "ToolTip": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_ADMIN_DOCUMENTS_MANAGE_POS.MDF/True/SqlTable/dbo.categories.sql",
@@ -329,29 +320,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 17,
               "Title": "AdminAddUser.cs [Design]",
               "DocumentMoniker": "D:\\Winform\\Quan_Li_Kho\\AdminAddUser.cs",
               "RelativeDocumentMoniker": "AdminAddUser.cs",
               "ToolTip": "D:\\Winform\\Quan_Li_Kho\\AdminAddUser.cs [Design]",
               "RelativeToolTip": "AdminAddUser.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-08T14:36:04.457Z"
+              "WhenOpened": "2025-11-08T14:36:04.457Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 18,
               "Title": "Admin_Dashboard.cs [Design]",
               "DocumentMoniker": "D:\\Winform\\Quan_Li_Kho\\Admin_Dashboard.cs",
               "RelativeDocumentMoniker": "Admin_Dashboard.cs",
               "ToolTip": "D:\\Winform\\Quan_Li_Kho\\Admin_Dashboard.cs [Design]",
               "RelativeToolTip": "Admin_Dashboard.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T15:51:12.752Z"
+              "WhenOpened": "2025-11-03T15:51:12.752Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 19,
               "Title": "MainForm.Designer.cs",
               "DocumentMoniker": "D:\\Winform\\Quan_Li_Kho\\MainForm.Designer.cs",
               "RelativeDocumentMoniker": "MainForm.Designer.cs",
@@ -359,11 +352,12 @@
               "RelativeToolTip": "MainForm.Designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-04T08:01:17.182Z"
+              "WhenOpened": "2025-11-04T08:01:17.182Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 20,
               "Title": "Admin_Dashboard.cs",
               "DocumentMoniker": "D:\\Winform\\Quan_Li_Kho\\Admin_Dashboard.cs",
               "RelativeDocumentMoniker": "Admin_Dashboard.cs",
@@ -371,7 +365,8 @@
               "RelativeToolTip": "Admin_Dashboard.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T16:17:52.205Z"
+              "WhenOpened": "2025-11-03T16:17:52.205Z",
+              "EditorCaption": ""
             }
           ]
         },

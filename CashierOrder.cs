@@ -381,6 +381,7 @@ namespace Manage_POS
 
         private void CashierOrder_pay_Click(object sender, EventArgs e)
         {
+            // Kiểm tra số tiền khách đưa
             if (string.IsNullOrWhiteSpace(CashierOrder_amount.Text))
             {
                 MessageBox.Show("Hãy nhập số tiền khách đưa!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -412,7 +413,7 @@ namespace Manage_POS
             }
 
             // Xác nhận thanh toán
-            if (MessageBox.Show("Bạn muốn thanh toán đơn hàng ?", "Confirm",
+            if (MessageBox.Show("Bạn muốn thanh toán đơn hàng?", "Confirm",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
                 return;
 
@@ -428,53 +429,25 @@ namespace Manage_POS
                 {
                     conn.Open();
 
-                    // *** TÌM customer_id của giỏ hiện tại (nếu có) ***
+                    // Sinh customer_id mới dựa trên orders hiện có
                     int currentCustomerId = 0;
-                    using (SqlCommand cmdFind = new SqlCommand("SELECT TOP 1 customer_id FROM orders", conn))
+                    using (SqlCommand cmdMax = new SqlCommand("SELECT ISNULL(MAX(customer_id), 0) FROM orders", conn))
                     {
-                        object res = cmdFind.ExecuteScalar();
-                        if (res != null && res != DBNull.Value)
-                        {
-                            int.TryParse(res.ToString(), out currentCustomerId);
-                        }
+                        object r = cmdMax.ExecuteScalar();
+                        currentCustomerId = Convert.ToInt32(r) + 1;
                     }
 
-                    // Nếu không có orders (vô tình), tạo id mới
-                    if (currentCustomerId == 0)
-                    {
-                        // sinh id như bạn đang làm
-                        using (SqlCommand cmdMax = new SqlCommand("SELECT ISNULL(MAX(customer_id),0) FROM orders", conn))
-                        {
-                            object r = cmdMax.ExecuteScalar();
-                            currentCustomerId = Convert.ToInt32(r) + 1;
-                        }
-                    }
-
-                    // Gộp danh sách product_id hiện có (lọc row mới và null)
-                    var productIds = dataGridView1.Rows.Cast<DataGridViewRow>()
-                        .Where(r => !r.IsNewRow && r.Cells["product_id"].Value != null)
-                        .Select(r => r.Cells["product_id"].Value.ToString().Trim())
-                        .Where(s => !string.IsNullOrEmpty(s))
-                        .ToList();
-
-                    if (productIds.Count == 0)
-                    {
-                        MessageBox.Show("Không tìm thấy sản phẩm hợp lệ trong đơn.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-                    string productList = string.Join(",", productIds);
-
-                    // dùng transaction để chắc chắn insert + delete là atomic
+                    // Transaction để chắc chắn insert + delete là atomic
                     using (SqlTransaction txn = conn.BeginTransaction())
                     {
                         try
                         {
-                            string insertData =
- @"INSERT INTO customers (customer_id, total_price, amount, change_amount, order_date)
-  VALUES (@customer_id, @total_price, @amount, @change_amount, @order_date)";
+                            // Insert vào bảng customers (không có product_id)
+                            string insertCustomer = @"
+                        INSERT INTO customers (customer_id, total_price, amount, change_amount, order_date)
+                        VALUES (@customer_id, @total_price, @amount, @change_amount, @order_date)";
 
-                            using (SqlCommand cmdInsert = new SqlCommand(insertData, conn, txn))
+                            using (SqlCommand cmdInsert = new SqlCommand(insertCustomer, conn, txn))
                             {
                                 cmdInsert.Parameters.AddWithValue("@customer_id", currentCustomerId);
                                 cmdInsert.Parameters.AddWithValue("@total_price", totalPrice);
@@ -485,11 +458,10 @@ namespace Manage_POS
                                 cmdInsert.ExecuteNonQuery();
                             }
 
-                            // Xóa chỉ những order của customer hiện tại
-                            string deleteOrders = "DELETE FROM orders WHERE customer_id = @cid";
+                            // Xóa các order của customer hiện tại
+                            string deleteOrders = "DELETE FROM orders";
                             using (SqlCommand cmdDelete = new SqlCommand(deleteOrders, conn, txn))
                             {
-                                cmdDelete.Parameters.AddWithValue("@cid", currentCustomerId);
                                 cmdDelete.ExecuteNonQuery();
                             }
 
