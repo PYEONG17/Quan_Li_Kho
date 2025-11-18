@@ -47,4 +47,4 @@ D:\Winform\Quan_Li_Kho\obj\Release\Manage_POS.csproj.CoreCompileInputs.cache
 D:\Winform\Quan_Li_Kho\obj\Release\Manage_POS.csproj.Up2Date
 D:\Winform\Quan_Li_Kho\obj\Release\Manage_POS.exe
 D:\Winform\Quan_Li_Kho\obj\Release\Manage_POS.pdb
-D:\Winform\Quan_Li_Kho\obj\Release\Manage_POS.exe.config
+D:\Winform\Quan_Li_Kho\obj\Release\Manage_POS.CashierCustomerForm.resources

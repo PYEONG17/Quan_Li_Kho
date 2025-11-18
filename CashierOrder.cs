@@ -543,8 +543,201 @@ namespace Manage_POS
                 CashierOrder_change.Text = "";
             }
         }
+        // Billl
+        // dùng để in sau khi thanh toán (lưu tạm)
+        private DataTable dtOrdersForPrint = null;
+        private int lastPaidCustomerId = 0;
+
+        // index in cho phân trang
+        private int printRowIndex = 0;
+        private void CashierOrder_bill_Click(object sender, EventArgs e)
+        {
+            // Nếu vừa thanh toán, dtOrdersForPrint sẽ chứa chi tiết để in
+            // Nếu không có dtOrdersForPrint, fallback in từ dataGridView1 hiện tại
+            if ((dtOrdersForPrint == null || dtOrdersForPrint.Rows.Count == 0) && (dataGridView1 == null || dataGridView1.Rows.Count == 0))
+            {
+                MessageBox.Show("Không có dữ liệu để in. Vui lòng thanh toán hoặc chọn đơn hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // reset index in
+            printRowIndex = 0;
+
+            // tránh đăng ký event nhiều lần
+            printDocument1.BeginPrint -= printDocument1_BeginPrint;
+            printDocument1.PrintPage -= printDocument1_PrintPage;
+            printDocument1.BeginPrint += printDocument1_BeginPrint;
+            printDocument1.PrintPage += printDocument1_PrintPage;
+
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.Width = 900;
+            printPreviewDialog1.Height = 700;
+            printPreviewDialog1.ShowDialog();
+        }
+        private void printDocument1_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            printRowIndex = 0;
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            // chọn nguồn in: ưu tiên dtOrdersForPrint, nếu rỗng dùng dataGridView1
+            bool useDataTable = dtOrdersForPrint != null && dtOrdersForPrint.Rows.Count > 0;
+
+            // chuẩn fonts / layout
+            Font headerFont = new Font("Tahoma", 14, FontStyle.Bold);
+            Font colHeaderFont = new Font("Tahoma", 10, FontStyle.Bold);
+            Font bodyFont = new Font("Tahoma", 10, FontStyle.Regular);
+            float lineHeight = bodyFont.GetHeight(e.Graphics) + 6f;
+
+            float left = e.MarginBounds.Left;
+            float top = e.MarginBounds.Top;
+            float right = e.MarginBounds.Right;
+            float bottom = e.MarginBounds.Bottom;
+            float y = top;
+
+            // Title
+            string title = "HÓA ĐƠN BÁN HÀNG";
+            SizeF titleSize = e.Graphics.MeasureString(title, headerFont);
+            float titleX = left + (e.MarginBounds.Width - titleSize.Width) / 2f;
+            e.Graphics.DrawString(title, headerFont, Brushes.Black, titleX, y);
+            y += titleSize.Height + 8f;
+
+            // Ngày
+            string dateStr = "Ngày: " + DateTime.Now.ToString("yyyy-MM-dd HH:mm");
+            e.Graphics.DrawString(dateStr, bodyFont, Brushes.Black, left, y);
+            y += lineHeight + 6f;
+
+            // Column headers và tỉ lệ cột (tùy chỉnh)
+            string[] headers = new string[] { "Mã SP", "Tên SP", "Danh mục", "SL", "Giá", "Thành tiền", "Ngày" };
+            float[] colRatios = new float[] { 12, 32, 16, 8, 12, 12, 8 }; // tổng = 100
+            int colCount = headers.Length;
+            float tableWidth = e.MarginBounds.Width;
+            float[] colWidths = new float[colCount];
+            for (int i = 0; i < colCount; i++) colWidths[i] = tableWidth * (colRatios[i] / 100f);
+
+            // vẽ header cột
+            float x = left;
+            for (int i = 0; i < colCount; i++)
+            {
+                var rect = new RectangleF(x, y, colWidths[i], lineHeight);
+                StringFormat sf = new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
+                e.Graphics.DrawRectangle(Pens.Black, rect.X, rect.Y, rect.Width, rect.Height);
+                e.Graphics.DrawString(headers[i], colHeaderFont, Brushes.Black, rect, sf);
+                x += colWidths[i];
+            }
+            y += lineHeight;
+
+            // In dữ liệu - xử lý phân trang
+            if (useDataTable)
+            {
+                while (printRowIndex < dtOrdersForPrint.Rows.Count)
+                {
+                    if (y + lineHeight > bottom - 100) { e.HasMorePages = true; return; }
+
+                    DataRow dr = dtOrdersForPrint.Rows[printRowIndex];
+                    x = left;
+
+                    string sProd = dr.Table.Columns.Contains("product_id") ? (dr["product_id"]?.ToString() ?? "") : "";
+                    string sName = dr.Table.Columns.Contains("product_name") ? (dr["product_name"]?.ToString() ?? "") : "";
+                    string sCategory = dr.Table.Columns.Contains("category") ? (dr["category"]?.ToString() ?? "") : "";
+                    string sQty = dr.Table.Columns.Contains("quality") ? (dr["quality"]?.ToString() ?? "") : "";
+                    string sPrice = dr.Table.Columns.Contains("origin_price") ? (dr["origin_price"]?.ToString() ?? "") : "";
+                    string sTotal = dr.Table.Columns.Contains("total_price") ? (dr["total_price"]?.ToString() ?? "") : "";
+                    string sDate = dr.Table.Columns.Contains("order_date") && dr["order_date"] != DBNull.Value ? Convert.ToDateTime(dr["order_date"]).ToString("yyyy-MM-dd") : "";
+
+                    string[] cols = new string[] { sProd, sName, sCategory, sQty, sPrice, sTotal, sDate };
+
+                    for (int c = 0; c < colCount; c++)
+                    {
+                        var rect = new RectangleF(x, y, colWidths[c], lineHeight);
+                        StringFormat sf = new StringFormat() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center };
+                        // căn phải cho số
+                        if (decimal.TryParse(cols[c], out _) || double.TryParse(cols[c], out _)) sf.Alignment = StringAlignment.Far;
+                        e.Graphics.DrawRectangle(Pens.Black, rect.X, rect.Y, rect.Width, rect.Height);
+                        e.Graphics.DrawString(cols[c], bodyFont, Brushes.Black, rect, sf);
+                        x += colWidths[c];
+                    }
+
+                    y += lineHeight;
+                    printRowIndex++;
+                }
+            }
+            else
+            {
+                // in từ DataGridView (đảm bảo cột tồn tại)
+                while (printRowIndex < dataGridView1.Rows.Count)
+                {
+                    if (y + lineHeight > bottom - 100) { e.HasMorePages = true; return; }
+
+                    DataGridViewRow row = dataGridView1.Rows[printRowIndex];
+                    x = left;
+
+                    // lấy giá trị cột theo tên nếu có, fallback theo chỉ số
+                    string sProd = row.Cells["product_id"]?.Value?.ToString() ?? "";
+                    string sName = row.Cells["product_name"]?.Value?.ToString() ?? "";
+                    string sCategory = row.Cells["category"]?.Value?.ToString() ?? "";
+                    string sQty = row.Cells["quality"]?.Value?.ToString() ?? "";
+                    string sPrice = row.Cells["origin_price"]?.Value?.ToString() ?? "";
+                    string sTotal = row.Cells["total_price"]?.Value?.ToString() ?? "";
+                    string sDate = row.Cells["order_date"]?.Value != null ? Convert.ToDateTime(row.Cells["order_date"].Value).ToString("yyyy-MM-dd") : "";
+
+                    string[] cols = new string[] { sProd, sName, sCategory, sQty, sPrice, sTotal, sDate };
+
+                    for (int c = 0; c < colCount; c++)
+                    {
+                        var rect = new RectangleF(x, y, colWidths[c], lineHeight);
+                        StringFormat sf = new StringFormat() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center };
+                        if (decimal.TryParse(cols[c], out _) || double.TryParse(cols[c], out _)) sf.Alignment = StringAlignment.Far;
+                        e.Graphics.DrawRectangle(Pens.Black, rect.X, rect.Y, rect.Width, rect.Height);
+                        e.Graphics.DrawString(cols[c], bodyFont, Brushes.Black, rect, sf);
+                        x += colWidths[c];
+                    }
+
+                    y += lineHeight;
+                    printRowIndex++;
+                }
+            }
+
+            // Footer: tổng, khách đưa, tiền thối — tính tổng từ nguồn in (an toàn)
+            decimal totalFromPrint = 0m;
+            if (useDataTable)
+            {
+                foreach (DataRow r in dtOrdersForPrint.Rows)
+                    if (r.Table.Columns.Contains("total_price") && r["total_price"] != DBNull.Value)
+                        totalFromPrint += Convert.ToDecimal(r["total_price"]);
+            }
+            else
+            {
+                foreach (DataGridViewRow r in dataGridView1.Rows)
+                {
+                    if (r.IsNewRow) continue;
+                    var cell = r.Cells["total_price"]?.Value;
+                    if (cell != null && decimal.TryParse(cell.ToString(), out decimal p)) totalFromPrint += p;
+                }
+            }
+
+            decimal.TryParse(CashierOrder_amount.Text.Trim(), out decimal amountGiven);
+            decimal.TryParse(CashierOrder_change.Text.Trim(), out decimal changeAmount);
+
+            float footerY = bottom - 80;
+            Font footerFont = new Font("Tahoma", 11, FontStyle.Bold);
+
+            string totalLine = $"TỔNG: {totalFromPrint:0.00}";
+            string amountLine = $"KHÁCH ĐƯA: {amountGiven:0.00}";
+
+            SizeF totalSize = e.Graphics.MeasureString(totalLine, footerFont);
+            e.Graphics.DrawString(totalLine, footerFont, Brushes.Black, right - totalSize.Width, footerY);
+            footerY += lineHeight;
+            SizeF amtSize = e.Graphics.MeasureString(amountLine, bodyFont);
+            e.Graphics.DrawString(amountLine, bodyFont, Brushes.Black, right - amtSize.Width, footerY);
+            footerY += lineHeight;
+            e.HasMorePages = false;
+        }
+
 
     }
+
 }
 
 

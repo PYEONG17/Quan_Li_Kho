@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Data.SqlClient;
 namespace Manage_POS
 {
     public partial class Admin_Dashboard : UserControl
@@ -16,10 +16,13 @@ namespace Manage_POS
         {
             InitializeComponent();
         }
+        public void displayTodayCustomer()
+        {
 
+        }
         private void label8_Click(object sender, EventArgs e)
         {
 
         }
     }
-}
+}

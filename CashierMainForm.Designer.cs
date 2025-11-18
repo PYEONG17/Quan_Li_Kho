@@ -43,6 +43,7 @@
             this.cashierOrder1 = new Manage_POS.CashierOrder();
             this.addminProduct1 = new Manage_POS.AddminProduct();
             this.admin_Dashboard1 = new Manage_POS.Admin_Dashboard();
+            this.cashierCustomerForm1 = new Manage_POS.CashierCustomerForm();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -179,6 +180,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.cashierCustomerForm1);
             this.panel3.Controls.Add(this.cashierOrder1);
             this.panel3.Controls.Add(this.addminProduct1);
             this.panel3.Controls.Add(this.admin_Dashboard1);
@@ -210,6 +212,13 @@
             this.admin_Dashboard1.Name = "admin_Dashboard1";
             this.admin_Dashboard1.Size = new System.Drawing.Size(993, 625);
             this.admin_Dashboard1.TabIndex = 0;
+            // 
+            // cashierCustomerForm1
+            // 
+            this.cashierCustomerForm1.Location = new System.Drawing.Point(6, 3);
+            this.cashierCustomerForm1.Name = "cashierCustomerForm1";
+            this.cashierCustomerForm1.Size = new System.Drawing.Size(993, 622);
+            this.cashierCustomerForm1.TabIndex = 3;
             // 
             // CashierMainForm
             // 
@@ -248,5 +257,6 @@
         private Admin_Dashboard admin_Dashboard1;
         private AddminProduct addminProduct1;
         private CashierOrder cashierOrder1;
+        private CashierCustomerForm cashierCustomerForm1;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CashierOrder));
             this.panel1 = new CSharp.Winform.UI.Panel();
             this.dataGridView_Product = new System.Windows.Forms.DataGridView();
             this.label10 = new CSharp.Winform.UI.Label();
@@ -56,6 +57,8 @@
             this.CashierOrder_amount = new CSharp.Winform.UI.TextBox();
             this.label9 = new CSharp.Winform.UI.Label();
             this.label8 = new CSharp.Winform.UI.Label();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Product)).BeginInit();
             this.panel2.SuspendLayout();
@@ -324,6 +327,7 @@
             this.CashierOrder_bill.TabIndex = 23;
             this.CashierOrder_bill.Text = "Hóa đơn";
             this.CashierOrder_bill.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.CashierOrder_bill.Click += new System.EventHandler(this.CashierOrder_bill_Click);
             // 
             // CashierOrder_pay
             // 
@@ -377,6 +381,21 @@
             this.label8.TabIndex = 17;
             this.label8.Text = "Tổng tiền($):";
             // 
+            // printDocument1
+            // 
+            this.printDocument1.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocument1_BeginPrint);
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
             // CashierOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -429,5 +448,7 @@
         private CSharp.Winform.UI.Label label11;
         private System.Windows.Forms.DataGridView dataGridView_Product;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }
