@@ -381,80 +381,199 @@ namespace Manage_POS
 
         private void CashierOrder_pay_Click(object sender, EventArgs e)
         {
-            IDGenarator();
-            if (CashierOrder_amount.Text == "" || dataGridView1.Rows.Count < 0)
+            if (string.IsNullOrWhiteSpace(CashierOrder_amount.Text))
             {
                 MessageBox.Show("Hãy nhập số tiền khách đưa!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            else
+
+            if (!decimal.TryParse(CashierOrder_amount.Text, out decimal amount))
             {
-                if (MessageBox.Show("Bạn muốn thanh toán ?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                MessageBox.Show("Số tiền khách đưa không hợp lệ!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Tính tổng đơn hàng
+            decimal totalPrice = GetCurrentOrderTotal();
+
+            if (totalPrice <= 0)
+            {
+                MessageBox.Show("Không có sản phẩm trong đơn hàng!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            decimal change = amount - totalPrice;
+            CashierOrder_change.Text = change.ToString("0.00");
+
+            if (change < 0)
+            {
+                MessageBox.Show("Khách đưa chưa đủ tiền!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Xác nhận thanh toán
+            if (MessageBox.Show("Bạn muốn thanh toán đơn hàng ?", "Confirm",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
+
+            if (!CheckConnection())
+            {
+                MessageBox.Show("Không thể kết nối tới database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connect.ConnectionString))
                 {
-                    if (CheckConnection())
+                    conn.Open();
+
+                    // *** TÌM customer_id của giỏ hiện tại (nếu có) ***
+                    int currentCustomerId = 0;
+                    using (SqlCommand cmdFind = new SqlCommand("SELECT TOP 1 customer_id FROM orders", conn))
+                    {
+                        object res = cmdFind.ExecuteScalar();
+                        if (res != null && res != DBNull.Value)
+                        {
+                            int.TryParse(res.ToString(), out currentCustomerId);
+                        }
+                    }
+
+                    // Nếu không có orders (vô tình), tạo id mới
+                    if (currentCustomerId == 0)
+                    {
+                        // sinh id như bạn đang làm
+                        using (SqlCommand cmdMax = new SqlCommand("SELECT ISNULL(MAX(customer_id),0) FROM orders", conn))
+                        {
+                            object r = cmdMax.ExecuteScalar();
+                            currentCustomerId = Convert.ToInt32(r) + 1;
+                        }
+                    }
+
+                    // Gộp danh sách product_id hiện có (lọc row mới và null)
+                    var productIds = dataGridView1.Rows.Cast<DataGridViewRow>()
+                        .Where(r => !r.IsNewRow && r.Cells["product_id"].Value != null)
+                        .Select(r => r.Cells["product_id"].Value.ToString().Trim())
+                        .Where(s => !string.IsNullOrEmpty(s))
+                        .ToList();
+
+                    if (productIds.Count == 0)
+                    {
+                        MessageBox.Show("Không tìm thấy sản phẩm hợp lệ trong đơn.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    string productList = string.Join(",", productIds);
+
+                    // dùng transaction để chắc chắn insert + delete là atomic
+                    using (SqlTransaction txn = conn.BeginTransaction())
                     {
                         try
                         {
-                            connect.Open();
-                            string insertData = "Insert into customers(customer_id,product_id,total_price,amount,change_amount,order_date)" +
-                                "values (@customer_id,@product_id,@total_price,@amount,@change_amount,@order_date)";
-                            using (SqlCommand cmd = new SqlCommand(insertData, connect))
+                            string insertData =
+                                @"INSERT INTO customers (customer_id, product_id, total_price, amount, change_amount, order_date)
+                          VALUES (@customer_id, @product_id, @total_price, @amount, @change_amount, @order_date)";
+
+                            using (SqlCommand cmdInsert = new SqlCommand(insertData, conn, txn))
                             {
-                                cmd.Parameters.AddWithValue("@customer_id", idGen);
-                                cmd.Parameters.AddWithValue("@product_id", CashierOrder_productID.SelectedItem);
-                                cmd.Parameters.AddWithValue("@total_price", CashierOrder_total.Text);
-                                cmd.Parameters.AddWithValue("@amount", CashierOrder_amount.Text);
-                                cmd.Parameters.AddWithValue("@change_amount", CashierOrder_change.Text);
-                                DateTime now = DateTime.Now;
-                                cmd.Parameters.AddWithValue("@order_date", now.ToString("MM/dd/yyyy"));
-                                cmd.ExecuteNonQuery();
+                                cmdInsert.Parameters.AddWithValue("@customer_id", currentCustomerId);
+                                cmdInsert.Parameters.AddWithValue("@product_id", productList);
+                                cmdInsert.Parameters.AddWithValue("@total_price", totalPrice);
+                                cmdInsert.Parameters.AddWithValue("@amount", amount);
+                                cmdInsert.Parameters.AddWithValue("@change_amount", change);
+                                cmdInsert.Parameters.AddWithValue("@order_date", DateTime.Now);
 
-                                clearField();
-
+                                cmdInsert.ExecuteNonQuery();
                             }
+
+                            // Xóa chỉ những order của customer hiện tại
+                            string deleteOrders = "DELETE FROM orders WHERE customer_id = @cid";
+                            using (SqlCommand cmdDelete = new SqlCommand(deleteOrders, conn, txn))
+                            {
+                                cmdDelete.Parameters.AddWithValue("@cid", currentCustomerId);
+                                cmdDelete.ExecuteNonQuery();
+                            }
+
+                            txn.Commit();
                         }
-                        catch (Exception ex)
+                        catch
                         {
-                            MessageBox.Show("Lỗi thanh toán: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        finally
-                        {
-                            connect.Close();
+                            txn.Rollback();
+                            throw;
                         }
                     }
+                }
+
+                MessageBox.Show("Thanh toán thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                clearField();
+                displayOrders();
+                displayTotalPrice();
+                CashierOrder_amount.Text = "";
+                CashierOrder_change.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi thanh toán: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private decimal GetCurrentOrderTotal()
+        {
+            decimal total = 0;
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells["total_price"].Value != null &&
+                    decimal.TryParse(row.Cells["total_price"].Value.ToString(), out decimal price))
+                {
+                    total += price;
                 }
             }
             displayTotalPrice();
 
+            return total;
         }
+
+
         private float totalPrice = 0;
         private void CashierOrder_amount_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode != Keys.Enter) return;
+
+            try
             {
-                try
-                {
-                    float getAmount = Convert.ToSingle(CashierOrder_amount.Text);
-                    float getChange = (getAmount - totalPrice);
-                    if (getChange <= -1)
-                    {
-                        CashierOrder_amount.Text = " ";
-                        CashierOrder_change.Text = " ";
+                // Lấy tổng tiền hiện tại
+                decimal total = GetCurrentOrderTotal();
 
-                    }
-                    else
-                    {
-                        CashierOrder_change.Text = getChange.ToString("0.00");
-                    }
-                }
-                catch
-                    (Exception ex)
+                // Parse số tiền khách đưa
+                if (!decimal.TryParse(CashierOrder_amount.Text, out decimal amount))
                 {
-                    MessageBox.Show("Lỗi  " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    CashierOrder_amount.Text = " ";
-                    CashierOrder_change.Text = " ";
+                    MessageBox.Show("Số tiền không hợp lệ!", "Error");
+                    return;
                 }
 
+                decimal change = amount - total;
+
+                if (change < 0)
+                {
+                    CashierOrder_change.Text = "";
+                    MessageBox.Show("Khách đưa chưa đủ tiền!");
+                }
+                else
+                {
+                    CashierOrder_change.Text = change.ToString("0.00");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "Error");
+                CashierOrder_amount.Text = "";
+                CashierOrder_change.Text = "";
             }
         }
+
     }
 }
+
+

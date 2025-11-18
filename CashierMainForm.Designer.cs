@@ -40,9 +40,9 @@
             this.uiButton_dashboard = new Sunny.UI.UIButton();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new CSharp.Winform.UI.Panel();
+            this.cashierOrder1 = new Manage_POS.CashierOrder();
             this.addminProduct1 = new Manage_POS.AddminProduct();
             this.admin_Dashboard1 = new Manage_POS.Admin_Dashboard();
-            this.cashierOrder1 = new Manage_POS.CashierOrder();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -189,6 +189,14 @@
             this.panel3.Size = new System.Drawing.Size(1003, 634);
             this.panel3.TabIndex = 3;
             // 
+            // cashierOrder1
+            // 
+            this.cashierOrder1.Location = new System.Drawing.Point(7, 7);
+            this.cashierOrder1.Name = "cashierOrder1";
+            this.cashierOrder1.Size = new System.Drawing.Size(1009, 648);
+            this.cashierOrder1.TabIndex = 2;
+            this.cashierOrder1.Load += new System.EventHandler(this.cashierOrder1_Load_1);
+            // 
             // addminProduct1
             // 
             this.addminProduct1.Location = new System.Drawing.Point(3, 0);
@@ -203,14 +211,6 @@
             this.admin_Dashboard1.Size = new System.Drawing.Size(993, 625);
             this.admin_Dashboard1.TabIndex = 0;
             // 
-            // cashierOrder1
-            // 
-            this.cashierOrder1.Location = new System.Drawing.Point(7, 7);
-            this.cashierOrder1.Name = "cashierOrder1";
-            this.cashierOrder1.Size = new System.Drawing.Size(1009, 648);
-            this.cashierOrder1.TabIndex = 2;
-            this.cashierOrder1.Load += new System.EventHandler(this.cashierOrder1_Load_1);
-            // 
             // CashierMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -220,6 +220,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "CashierMainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CashierMainForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

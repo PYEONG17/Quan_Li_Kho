@@ -3,7 +3,7 @@ select * from products;
 create table orders (
 	id int primary key identity (1,1),
 	customer_id int null,
-	product_id int null,
+	product_id varchar(max) null,
 	product_name varchar(100) null,
 	category varchar(100) null,
 	quality int null,
@@ -17,12 +17,14 @@ add  customer_id int null;
 select * from orders;
 CREATE TABLE customers (
     id INT PRIMARY KEY IDENTITY(1,1),
-    customer_id INT NULL,
-    product_id INT NULL,
-    total_price INT NULL,
-    amount DECIMAL(18,2) NULL,
-    change_amount DECIMAL(18,2) NULL,
+    customer_id int NULL,
+    product_id varchar (Max) NULL,
+    total_price float NULL,
+    amount float NULL,
+    change_amount float NULL,
     order_date DATE NULL
 );
 
-select * from customers;
+select * from customers
+alter table customers
+drop column product_id
