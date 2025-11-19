@@ -43,7 +43,7 @@
             this.cashierOrder1 = new Manage_POS.CashierOrder();
             this.addminProduct1 = new Manage_POS.AddminProduct();
             this.admin_Dashboard1 = new Manage_POS.Admin_Dashboard();
-            this.cashierCustomerForm1 = new Manage_POS.CashierCustomerForm();
+            this.admin_Dashboard2 = new Manage_POS.Admin_Dashboard();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -180,7 +180,7 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.cashierCustomerForm1);
+            this.panel3.Controls.Add(this.admin_Dashboard2);
             this.panel3.Controls.Add(this.cashierOrder1);
             this.panel3.Controls.Add(this.addminProduct1);
             this.panel3.Controls.Add(this.admin_Dashboard1);
@@ -213,12 +213,12 @@
             this.admin_Dashboard1.Size = new System.Drawing.Size(993, 625);
             this.admin_Dashboard1.TabIndex = 0;
             // 
-            // cashierCustomerForm1
+            // admin_Dashboard2
             // 
-            this.cashierCustomerForm1.Location = new System.Drawing.Point(6, 3);
-            this.cashierCustomerForm1.Name = "cashierCustomerForm1";
-            this.cashierCustomerForm1.Size = new System.Drawing.Size(993, 622);
-            this.cashierCustomerForm1.TabIndex = 3;
+            this.admin_Dashboard2.Location = new System.Drawing.Point(10, 0);
+            this.admin_Dashboard2.Name = "admin_Dashboard2";
+            this.admin_Dashboard2.Size = new System.Drawing.Size(993, 651);
+            this.admin_Dashboard2.TabIndex = 3;
             // 
             // CashierMainForm
             // 
@@ -257,6 +257,6 @@
         private Admin_Dashboard admin_Dashboard1;
         private AddminProduct addminProduct1;
         private CashierOrder cashierOrder1;
-        private CashierCustomerForm cashierCustomerForm1;
+        private Admin_Dashboard admin_Dashboard2;
     }
 }

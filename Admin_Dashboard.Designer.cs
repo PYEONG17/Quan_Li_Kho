@@ -31,24 +31,26 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin_Dashboard));
             this.panel1 = new CSharp.Winform.UI.Panel();
             this.panel4 = new CSharp.Winform.UI.Panel();
-            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dashprice_todayPrice = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel5 = new CSharp.Winform.UI.Panel();
-            this.label5 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.dashboard_totalPrice = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel3 = new CSharp.Winform.UI.Panel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.dashboard_customer = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new CSharp.Winform.UI.Panel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.dashboard_user = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel6 = new CSharp.Winform.UI.Panel();
-            this.label1 = new CSharp.Winform.UI.Label();
             this.dataGridView_Product = new System.Windows.Forms.DataGridView();
+            this.label1 = new CSharp.Winform.UI.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -78,7 +80,8 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.panel4.Controls.Add(this.label8);
+            this.panel4.Controls.Add(this.label7);
+            this.panel4.Controls.Add(this.dashprice_todayPrice);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.pictureBox3);
             this.panel4.Font = new System.Drawing.Font("Tahoma", 8.25F);
@@ -87,17 +90,27 @@
             this.panel4.Size = new System.Drawing.Size(200, 154);
             this.panel4.TabIndex = 1;
             // 
-            // label8
+            // label7
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Location = new System.Drawing.Point(96, 89);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 34);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "0 $";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Tahoma", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.Location = new System.Drawing.Point(138, 100);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(44, 45);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "$";
+            // 
+            // dashprice_todayPrice
+            // 
+            this.dashprice_todayPrice.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashprice_todayPrice.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dashprice_todayPrice.Location = new System.Drawing.Point(103, 45);
+            this.dashprice_todayPrice.Name = "dashprice_todayPrice";
+            this.dashprice_todayPrice.Size = new System.Drawing.Size(94, 55);
+            this.dashprice_todayPrice.TabIndex = 4;
+            this.dashprice_todayPrice.Text = "0";
+            this.dashprice_todayPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
@@ -123,14 +136,37 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.panel5.Controls.Add(this.label5);
             this.panel5.Controls.Add(this.label9);
+            this.panel5.Controls.Add(this.dashboard_totalPrice);
+            this.panel5.Controls.Add(this.label5);
             this.panel5.Controls.Add(this.pictureBox4);
             this.panel5.Font = new System.Drawing.Font("Tahoma", 8.25F);
             this.panel5.Location = new System.Drawing.Point(716, 27);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(200, 154);
             this.panel5.TabIndex = 1;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Tahoma", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label9.Location = new System.Drawing.Point(137, 100);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(44, 45);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "$";
+            // 
+            // dashboard_totalPrice
+            // 
+            this.dashboard_totalPrice.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashboard_totalPrice.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dashboard_totalPrice.Location = new System.Drawing.Point(99, 45);
+            this.dashboard_totalPrice.Name = "dashboard_totalPrice";
+            this.dashboard_totalPrice.Size = new System.Drawing.Size(98, 55);
+            this.dashboard_totalPrice.TabIndex = 4;
+            this.dashboard_totalPrice.Text = "0";
+            this.dashboard_totalPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
@@ -142,17 +178,6 @@
             this.label5.Size = new System.Drawing.Size(95, 21);
             this.label5.TabIndex = 2;
             this.label5.Text = "Tổng Thu ";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label9.Location = new System.Drawing.Point(100, 89);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(59, 34);
-            this.label9.TabIndex = 5;
-            this.label9.Text = "0 $";
             // 
             // pictureBox4
             // 
@@ -167,7 +192,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.dashboard_customer);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.pictureBox2);
             this.panel3.Font = new System.Drawing.Font("Tahoma", 8.25F);
@@ -176,16 +201,16 @@
             this.panel3.Size = new System.Drawing.Size(200, 154);
             this.panel3.TabIndex = 1;
             // 
-            // label7
+            // dashboard_customer
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(120, 89);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 45);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "0";
+            this.dashboard_customer.AutoSize = true;
+            this.dashboard_customer.Font = new System.Drawing.Font("Tahoma", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashboard_customer.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dashboard_customer.Location = new System.Drawing.Point(120, 89);
+            this.dashboard_customer.Name = "dashboard_customer";
+            this.dashboard_customer.Size = new System.Drawing.Size(44, 45);
+            this.dashboard_customer.TabIndex = 3;
+            this.dashboard_customer.Text = "0";
             // 
             // label3
             // 
@@ -211,7 +236,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.dashboard_user);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Font = new System.Drawing.Font("Tahoma", 8.25F);
@@ -220,16 +245,16 @@
             this.panel2.Size = new System.Drawing.Size(200, 154);
             this.panel2.TabIndex = 0;
             // 
-            // label6
+            // dashboard_user
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Location = new System.Drawing.Point(120, 89);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 45);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "0";
+            this.dashboard_user.AutoSize = true;
+            this.dashboard_user.Font = new System.Drawing.Font("Tahoma", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashboard_user.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dashboard_user.Location = new System.Drawing.Point(120, 89);
+            this.dashboard_user.Name = "dashboard_user";
+            this.dashboard_user.Size = new System.Drawing.Size(44, 45);
+            this.dashboard_user.TabIndex = 2;
+            this.dashboard_user.Text = "0";
             // 
             // label2
             // 
@@ -262,16 +287,6 @@
             this.panel6.Size = new System.Drawing.Size(940, 386);
             this.panel6.TabIndex = 2;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(229, 28);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Tât cả người dùng ";
-            // 
             // dataGridView_Product
             // 
             this.dataGridView_Product.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -281,6 +296,16 @@
             this.dataGridView_Product.RowTemplate.Height = 24;
             this.dataGridView_Product.Size = new System.Drawing.Size(895, 311);
             this.dataGridView_Product.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(229, 28);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Tât cả người dùng ";
             // 
             // Admin_Dashboard
             // 
@@ -324,13 +349,15 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label dashboard_customer;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label dashboard_user;
         private System.Windows.Forms.DataGridView dataGridView_Product;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label dashprice_todayPrice;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label dashboard_totalPrice;
     }
 }
