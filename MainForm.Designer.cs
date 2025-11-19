@@ -40,10 +40,11 @@
             this.uiButton_add_user = new Sunny.UI.UIButton();
             this.uiButton_dashboard = new Sunny.UI.UIButton();
             this.label2 = new System.Windows.Forms.Label();
-            this.addminProduct1 = new Manage_POS.AddminProduct();
-            this.adminAddCategories1 = new Manage_POS.AdminAddCategories();
-            this.adminAddUser1 = new Manage_POS.AdminAddUser();
             this.admin_Dashboard1 = new Manage_POS.Admin_Dashboard();
+            this.adminAddUser1 = new Manage_POS.AdminAddUser();
+            this.adminAddCategories1 = new Manage_POS.AdminAddCategories();
+            this.addminProduct1 = new Manage_POS.AddminProduct();
+            this.cashierCustomerForm1 = new Manage_POS.CashierCustomerForm();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -126,6 +127,7 @@
             this.uiButton_customer.TabIndex = 6;
             this.uiButton_customer.Text = "Khách hàng";
             this.uiButton_customer.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.uiButton_customer.Click += new System.EventHandler(this.uiButton_customer_Click);
             // 
             // uiButton_add_product
             // 
@@ -140,6 +142,7 @@
             this.uiButton_add_product.TabIndex = 5;
             this.uiButton_add_product.Text = "Sản phẩm";
             this.uiButton_add_product.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.uiButton_add_product.Click += new System.EventHandler(this.uiButton_add_product_Click);
             // 
             // uiButton_add_categories
             // 
@@ -169,6 +172,7 @@
             this.uiButton_add_user.TabIndex = 3;
             this.uiButton_add_user.Text = "Nhân viên";
             this.uiButton_add_user.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.uiButton_add_user.Click += new System.EventHandler(this.uiButton_add_user_Click);
             // 
             // uiButton_dashboard
             // 
@@ -181,7 +185,7 @@
             this.uiButton_dashboard.RectHoverColor = System.Drawing.Color.DodgerBlue;
             this.uiButton_dashboard.Size = new System.Drawing.Size(191, 38);
             this.uiButton_dashboard.TabIndex = 2;
-            this.uiButton_dashboard.Text = "Dashboard";
+            this.uiButton_dashboard.Text = "Trang chính";
             this.uiButton_dashboard.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.uiButton_dashboard.Click += new System.EventHandler(this.uiButton_dashboard_Click);
             // 
@@ -195,41 +199,47 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Welcome !";
             // 
+            // admin_Dashboard1
+            // 
+            this.admin_Dashboard1.Location = new System.Drawing.Point(210, 51);
+            this.admin_Dashboard1.Name = "admin_Dashboard1";
+            this.admin_Dashboard1.Size = new System.Drawing.Size(993, 625);
+            this.admin_Dashboard1.TabIndex = 2;
+            // 
+            // adminAddUser1
+            // 
+            this.adminAddUser1.Location = new System.Drawing.Point(210, 51);
+            this.adminAddUser1.Name = "adminAddUser1";
+            this.adminAddUser1.Size = new System.Drawing.Size(993, 625);
+            this.adminAddUser1.TabIndex = 3;
+            // 
+            // adminAddCategories1
+            // 
+            this.adminAddCategories1.Location = new System.Drawing.Point(210, 51);
+            this.adminAddCategories1.Name = "adminAddCategories1";
+            this.adminAddCategories1.Size = new System.Drawing.Size(1009, 638);
+            this.adminAddCategories1.TabIndex = 4;
+            // 
             // addminProduct1
             // 
-            this.addminProduct1.Location = new System.Drawing.Point(206, 51);
+            this.addminProduct1.Location = new System.Drawing.Point(210, 51);
             this.addminProduct1.Name = "addminProduct1";
             this.addminProduct1.Size = new System.Drawing.Size(1009, 648);
             this.addminProduct1.TabIndex = 5;
             // 
-            // adminAddCategories1
+            // cashierCustomerForm1
             // 
-            this.adminAddCategories1.Location = new System.Drawing.Point(206, 51);
-            this.adminAddCategories1.Name = "adminAddCategories1";
-            this.adminAddCategories1.Size = new System.Drawing.Size(1009, 638);
-            this.adminAddCategories1.TabIndex = 4;
-            this.adminAddCategories1.Load += new System.EventHandler(this.adminAddCategories1_Load);
-            // 
-            // adminAddUser1
-            // 
-            this.adminAddUser1.Location = new System.Drawing.Point(206, 51);
-            this.adminAddUser1.Name = "adminAddUser1";
-            this.adminAddUser1.Size = new System.Drawing.Size(993, 625);
-            this.adminAddUser1.TabIndex = 3;
-            this.adminAddUser1.Load += new System.EventHandler(this.adminAddUser1_Load);
-            // 
-            // admin_Dashboard1
-            // 
-            this.admin_Dashboard1.Location = new System.Drawing.Point(209, 51);
-            this.admin_Dashboard1.Name = "admin_Dashboard1";
-            this.admin_Dashboard1.Size = new System.Drawing.Size(993, 625);
-            this.admin_Dashboard1.TabIndex = 2;
+            this.cashierCustomerForm1.Location = new System.Drawing.Point(210, 51);
+            this.cashierCustomerForm1.Name = "cashierCustomerForm1";
+            this.cashierCustomerForm1.Size = new System.Drawing.Size(993, 625);
+            this.cashierCustomerForm1.TabIndex = 6;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1206, 685);
+            this.Controls.Add(this.cashierCustomerForm1);
             this.Controls.Add(this.addminProduct1);
             this.Controls.Add(this.adminAddCategories1);
             this.Controls.Add(this.adminAddUser1);
@@ -266,5 +276,6 @@
         private AdminAddUser adminAddUser1;
         private AdminAddCategories adminAddCategories1;
         private AddminProduct addminProduct1;
+        private CashierCustomerForm cashierCustomerForm1;
     }
 }

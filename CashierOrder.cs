@@ -20,6 +20,22 @@ namespace Manage_POS
         public CashierOrder()
         {
             InitializeComponent();
+
+            displayAllProducts();
+            displayCategories();
+            displayOrders();
+            displayTotalPrice();
+        }
+        public void refeshData()
+        {
+            if (InvokeRequired)
+            {
+                Invoke((MethodInvoker)refeshData);
+                return;
+
+            }
+            // Load UI
+
             displayAllProducts();
             displayCategories();
             displayOrders();

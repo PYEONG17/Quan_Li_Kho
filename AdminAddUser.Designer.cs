@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button_clear = new System.Windows.Forms.Button();
             this.button_remove = new System.Windows.Forms.Button();
@@ -44,9 +45,13 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
+            this.poS_manageDataSet = new Manage_POS.PoS_manageDataSet();
+            this.poSmanageDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.poS_manageDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.poSmanageDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -140,7 +145,7 @@
             this.comboBox_role.FormattingEnabled = true;
             this.comboBox_role.Items.AddRange(new object[] {
             "Admin",
-            "Nhân viên"});
+            "Cashier"});
             this.comboBox_role.Location = new System.Drawing.Point(27, 249);
             this.comboBox_role.Name = "comboBox_role";
             this.comboBox_role.Size = new System.Drawing.Size(307, 37);
@@ -241,6 +246,16 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Dữ liệu người dùng";
             // 
+            // poS_manageDataSet
+            // 
+            this.poS_manageDataSet.DataSetName = "PoS_manageDataSet";
+            this.poS_manageDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // poSmanageDataSetBindingSource
+            // 
+            this.poSmanageDataSetBindingSource.DataSource = this.poS_manageDataSet;
+            this.poSmanageDataSetBindingSource.Position = 0;
+            // 
             // AdminAddUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -255,6 +270,8 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.poS_manageDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.poSmanageDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -277,5 +294,7 @@
         private System.Windows.Forms.Button button_update;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private PoS_manageDataSet poS_manageDataSet;
+        private System.Windows.Forms.BindingSource poSmanageDataSetBindingSource;
     }
 }

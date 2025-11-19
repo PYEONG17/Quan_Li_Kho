@@ -26,6 +26,21 @@ namespace Manage_POS
             displayTodayIncome();
             displayTotalIncomeAll();
         }
+        public void refeshData()
+        {
+            if (InvokeRequired)
+            {
+                Invoke((MethodInvoker)refeshData);
+                return;
+
+            }
+            // Load UI
+            DisplayAggregatedCustomersToGrid();   // hiển thị mỗi customer 1 dòng (gộp)
+            DisplayUniqueCustomerCount();         // hiển thị số khách duy nhất
+            DisplayAllUsersCount();    // hiển thị số user active
+            displayTodayIncome();
+            displayTotalIncomeAll();
+        }
 
         /// <summary>
         /// Mở kết nối nếu cần, trả về true nếu có thể dùng connection.

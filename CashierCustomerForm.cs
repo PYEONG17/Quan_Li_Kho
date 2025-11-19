@@ -18,6 +18,18 @@ namespace Manage_POS
             InitializeComponent();
             DisplayTodayCustomers();
         }
+        public void refeshData()
+        {
+            if (InvokeRequired)
+            {
+                Invoke((MethodInvoker)refeshData);
+                return;
+
+            }
+            // Load UI
+
+            DisplayTodayCustomers();
+        }
         public void DisplayTodayCustomers()
         {
             try

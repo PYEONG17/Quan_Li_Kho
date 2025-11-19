@@ -20,6 +20,18 @@ namespace Manage_POS
             InitializeComponent();
             displayCategoriesData();
         }
+        public void refeshData()
+        {
+            if (InvokeRequired)
+            {
+                Invoke((MethodInvoker)refeshData);
+                return;
+
+            }
+            // Load UI
+
+            displayCategoriesData();
+        }
         public bool checkConnection()
         {
             try

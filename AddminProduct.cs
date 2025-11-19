@@ -24,9 +24,22 @@ namespace Manage_POS
             displayCategories();
             displayAllProducts();
         }
+        public void refeshData()
+        {
+            if (InvokeRequired)
+            {
+                Invoke((MethodInvoker)refeshData);
+                return;
+
+            }
+            // Load UI
+
+            displayCategories();
+            displayAllProducts();
+        }
         public void displayAllProducts()
         {
-            AddProductData apData = new AddProductData(); 
+            AddProductData apData = new AddProductData();
             List<AddProductData> listData = apData.AllProductData();
             dataGridView_Product.DataSource = listData;
 
@@ -59,13 +72,13 @@ namespace Manage_POS
                 MessageBox.Show("Lỗi " + ex, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
-       
+
+
         public bool checkEmptyFields()
         {
             if (textBox_id.Text == "" || textBox_Productname.Text == "" || comboBox_category.SelectedIndex == -1 ||
-                textBox_Price.Text == "" || textBox_Stock.Text == ""  ||
-                comboBox_Status.SelectedIndex == -1 || pictureBox.Image == null )
+                textBox_Price.Text == "" || textBox_Stock.Text == "" ||
+                comboBox_Status.SelectedIndex == -1 || pictureBox.Image == null)
             {
                 return true;
             }
@@ -224,10 +237,10 @@ namespace Manage_POS
             clearFields();
         }
 
-        private int getID=0;
+        private int getID = 0;
         private void dataGridView_Product_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex !=-1)
+            if (e.RowIndex != -1)
             {
                 DataGridViewRow row = dataGridView_Product.Rows[e.RowIndex];
                 getID = (int)row.Cells[0].Value; // ID
